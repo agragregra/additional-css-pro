@@ -59,7 +59,6 @@ add_action('admin_enqueue_scripts', function($hook) use ($selector) {
                 ed.setOptions({
                     fontSize: '16px',
                     fontFamily: '\"SF Mono\", \"Cascadia Code\", \"Fira Code\", \"JetBrains Mono\", monospace',
-                    fixedWidthFont: true,
                     useSoftTabs: true,
                     tabSize: 2
                 });
