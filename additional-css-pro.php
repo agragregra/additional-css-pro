@@ -98,7 +98,7 @@ add_action('admin_enqueue_scripts', function($hook) use ($selector) {
                         win.style.bottom = '20px';
                         win.style.width = '700px';
                         win.style.height = '400px';
-                        win.style.borderRadius = '8px'; // Закругление при откреплении
+                        win.style.borderRadius = '8px';
                     } else {
                         ['position', 'left', 'top', 'width', 'height', 'zIndex', 'borderRadius'].forEach(p => win.style[p] = '');
                         parentNode.insertBefore(win, nextSibling);
