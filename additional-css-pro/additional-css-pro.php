@@ -155,7 +155,7 @@ add_action('admin_head', function() use ($selector) {
         }
         .ace-detach-toggle:hover { background: #3e4451; color: #fff; }
         
-        #ace-pro-editor { flex-grow: 1; width: 100% !important; position: relative !important; }
+        #ace-pro-editor { flex-grow: 1; width: 100%!important; position: relative!important; }
 
         /* ТЕМНЫЙ СКРОЛЛБАР */
         #ace-pro-editor ::-webkit-scrollbar { width: 12px; height: 12px; background-color: #21252b; }
@@ -167,17 +167,17 @@ add_action('admin_head', function() use ($selector) {
         #ace-pro-editor ::-webkit-scrollbar-corner { background-color: #21252b; }
 
         #ace-window-container.is-detached {
-            position: fixed !important; z-index: 999999 !important;
+            position: fixed!important; z-index: 18000!important;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             resize: both; margin: 0;
             border: 1px solid #181a1f;
         }
         #ace-window-container.is-detached .ace-window-header { cursor: move; }
 
-        ' . $selector . ' .components-base-control__field { display: block !important; }
+        ' . $selector . ' .components-base-control__field { display: block!important; }
         
-        .ace_search { background: #21252b !important; color: #abb2bf !important; border: 1px solid #181a1f !important; box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important; }
-        .ace_search_field { background: #282c34 !important; border: 1px solid #3e4451 !important; color: #abb2bf !important; }
-        .ace_searchbtn, .ace_button { background: #3e4451 !important; color: #abb2bf !important; }
+        .ace_search { background: #21252b!important; color: #abb2bf!important; border: 1px solid #181a1f!important; box-shadow: 0 5px 15px rgba(0,0,0,0.5)!important; }
+        .ace_search_field { background: #282c34!important; border: 1px solid #3e4451!important; color: #abb2bf!important; }
+        .ace_searchbtn, .ace_button { background: #3e4451!important; color: #abb2bf!important; }
     </style>';
 });
