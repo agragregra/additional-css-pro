@@ -8,9 +8,12 @@
 
 if (!defined('ABSPATH')) exit;
 
-$selector = '.edit-site-global-styles-screen-css';
+$selectors = [
+    '.edit-site-global-styles-screen-css',
+    '.global-styles-ui-screen-css',
+];
 
-add_action('admin_enqueue_scripts', function($hook) use ($selector) {
+add_action('admin_enqueue_scripts', function($hook) use ($selectors) {
     if ($hook !== 'site-editor.php') return;
 
     $ace_url = plugin_dir_url(__FILE__) . 'vendor/ace';
@@ -19,7 +22,9 @@ add_action('admin_enqueue_scripts', function($hook) use ($selector) {
 
     wp_localize_script('ace-core', 'aceParams', [
         'base' => esc_url_raw($ace_url),
-        'selector' => esc_attr($selector . ' textarea')
+        'selector' => esc_attr(implode(', ', array_map(function($s) { 
+            return $s . ' textarea';
+        }, $selectors)))
     ]);
 
     wp_add_inline_script('ace-core', "
@@ -134,7 +139,7 @@ add_action('admin_enqueue_scripts', function($hook) use ($selector) {
     ");
 });
 
-add_action('admin_head', function() use ($selector) {
+add_action('admin_head', function() use ($selectors) {
     echo '<style>
         #ace-window-container { 
             display: flex; flex-direction: column; 
@@ -174,8 +179,10 @@ add_action('admin_head', function() use ($selector) {
         }
         #ace-window-container.is-detached .ace-window-header { cursor: move; }
 
-        ' . $selector . ' .components-base-control__field { display: block!important; }
-        
+        ' . implode(', ', array_map(function($s) { 
+            return $s . ' .components-base-control__field'; 
+        }, $selectors)) . ' { display: block!important; }
+
         .ace_search { background: #21252b!important; color: #abb2bf!important; border: 1px solid #181a1f!important; box-shadow: 0 5px 15px rgba(0,0,0,0.5)!important; }
         .ace_search_field { background: #282c34!important; border: 1px solid #3e4451!important; color: #abb2bf!important; }
         .ace_searchbtn, .ace_button { background: #3e4451!important; color: #abb2bf!important; }
